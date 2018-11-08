@@ -18,18 +18,18 @@ module.exports = function() {
   const db = mongoose.connection
 
   //handle error
-  db.on('error', (err) => log(error('Mongoose default connection ${err} error')))
+  db.on('error', (err) => log(error(`Mongoose default connection ${err} error`)))
 
   //handle connection
-  db.on('connected', () => log(connected('Mongoose default connection is open at ${URL}')))
+  db.on('connected', () => log(connected(`Mongoose default connection is open at ${URL}`)))
 
   //handle disconnection
-  db.on('disconnected', () => log(disconnected('Mongoose default connection is closed at ${URL}')))
+  db.on('disconnected', () => log(disconnected(`Mongoose default connection is closed at ${URL}`)))
 
   //handle termination
   process.on('SIGINT', () => {
     db.close(() => {
-      log(termination('Mongoose default connection has been terminated by user'))
+      log(termination(`Mongoose default connection has been terminated by user`))
       process.exit(0)
     })
   })
