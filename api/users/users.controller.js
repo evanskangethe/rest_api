@@ -21,7 +21,7 @@ exports.createUser = function (req,res,next) {
 
 exports.getUsers = function(req,res,next) {
 
-  User.get({},(err,users)=>{
+  Users.get({},(err,users)=>{
     if (err) res.json({error:err})
 
     res.json({users: users})
