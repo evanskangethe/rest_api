@@ -13,7 +13,7 @@ const termination = chalk.bold.magenta
 
 module.exports = function() {
 
-  mongoose.connect(URL, {useNewUrlParser: true})
+  mongoose.connect(URL, {useNewUrlParser: true,autoIndex: false})
 
   const db = mongoose.connection
 

@@ -1,4 +1,4 @@
-const Users = require('users.dao');
+const Users = require('./users.dao');
 const bcrypt = require('bcrypt');
 const saltRounds = 10
 
@@ -21,11 +21,11 @@ exports.createUser = function (req,res,next) {
 
 exports.getUsers = function(req,res,next) {
 
-  Users.get({},(err,users)){
+  User.get({},(err,users)=>{
     if (err) res.json({error:err})
 
     res.json({users: users})
-  }
+  })
 }
 
 exports.getUser = function (req,res,next) {
@@ -57,7 +57,7 @@ exports.updateUser = function (req,res,next) {
 
       res.json({message: 'User updated successfully'})
     })
-  }
+  })
 }
 
 exports.removeUser = function (req,res,next) {
